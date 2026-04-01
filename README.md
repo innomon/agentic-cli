@@ -1,4 +1,4 @@
-# Claude Code (Go Port) - Agentic CLI
+# AgentiCli (Go Port) - Agentic CLI
 
 A high-performance, native Go terminal assistant built on the `agentic` framework (Google ADK). This tool replicates the powerful agentic capabilities of Claude Code in a native binary with a rich TUI.
 

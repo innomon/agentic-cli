@@ -35,7 +35,7 @@ type Wrapper struct {
 
 // New creates a new agent wrapper.
 func New(ctx context.Context, cfg *launcher.Config, userID string) (*Wrapper, error) {
-	const appName = "ClaudeCodeGo"
+	const appName = "AgentiCli"
 
 	sessionService := cfg.SessionService
 	if sessionService == nil {

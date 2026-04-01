@@ -1,4 +1,4 @@
-# Agentic CLI (Go Port)
+# AgentiCli (Go Port)
 
 A dedicated TUI (Terminal User Interface) console for the `agentic` framework, ported from Claude Code specifications to a high-performance native Go implementation.
 

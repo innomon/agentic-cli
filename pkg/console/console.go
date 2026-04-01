@@ -156,7 +156,7 @@ func (l *Launcher) Run(ctx context.Context, cfg *launcher.Config) error {
 
 	filePattern := regexp.MustCompile(`@([^\s]+)`)
 
-	fmt.Fprintf(chatView, "[green]Welcome to Claude Code Go (Agentic Console)![white]\n")
+	fmt.Fprintf(chatView, "[green]Welcome to AgentiCli![white]\n")
 	fmt.Fprintf(chatView, "Attach files using @/path/to/file syntax.\n")
 	fmt.Fprintf(chatView, "Type /help for commands, /exit to quit.\n\n")
 
