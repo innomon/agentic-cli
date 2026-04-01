@@ -1,0 +1,19 @@
+# Binaries
+agenticli
+agenticli.exe
+bin/
+
+# Logs
+*.log
+firebase-debug.log
+
+# Environment
+.env
+
+# OS
+.DS_Store
+
+# Go
+vendor/
+*.test
+*.out

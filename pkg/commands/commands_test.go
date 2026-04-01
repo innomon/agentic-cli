@@ -1,0 +1,53 @@
+// Copyright 2026 Innomon
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package commands
+
+import (
+	"context"
+	"testing"
+)
+
+func TestCommandRegistry(t *testing.T) {
+	r := NewRegistry()
+	r.Register(Command{
+		Name:        "test",
+		Description: "A test command",
+		Handler: func(ctx context.Context, args []string) (string, error) {
+			return "OK", nil
+		},
+	})
+
+	ctx := context.Background()
+	output, handled, err := r.Execute(ctx, "/test")
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+	if !handled {
+		t.Fatal("Expected command to be handled")
+	}
+	if output != "OK" {
+		t.Fatalf("Expected output 'OK', got %q", output)
+	}
+
+	_, handled, _ = r.Execute(ctx, "not a command")
+	if handled {
+		t.Fatal("Expected non-command to not be handled")
+	}
+
+	_, handled, err = r.Execute(ctx, "/unknown")
+	if !handled || err == nil {
+		t.Fatal("Expected unknown command to be handled with error")
+	}
+}
