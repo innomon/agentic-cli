@@ -1,0 +1,68 @@
+# AgentiCli Configuration Example
+# Copy this to config.yaml and fill in your API keys.
+
+# The root agent to start when the application launches.
+root_agent: main_agent
+
+# Model definitions for different providers.
+models:
+  gemini:
+    provider: gemini
+    model_id: gemini-1.5-pro
+    api_key: "YOUR_GEMINI_API_KEY"
+    default: true
+  
+  openai:
+    provider: openai
+    model_id: gpt-4o
+    api_key: "YOUR_OPENAI_API_KEY"
+  
+  ollama:
+    provider: ollama
+    model_id: llama3
+    base_url: "http://localhost:11434"
+
+# Agent definitions.
+agents:
+  main_agent:
+    type: llm
+    model: gemini
+    instruction: |
+      You are AgentiCli, a high-performance native Go terminal assistant.
+      You have access to local tools to help the user with filesystem operations, 
+      shell commands, searching, and web fetching.
+      Be concise and helpful.
+    tools:
+      - filesystem.Read
+      - filesystem.Write
+      - filesystem.Edit
+      - shell.Bash
+      - search.Glob
+      - search.Grep
+      - web.Fetch
+
+# Tool definitions.
+# 'builtin' type tools are implemented natively in the AgentiCli binary.
+tools:
+  filesystem.Read:
+    type: builtin
+  filesystem.Write:
+    type: builtin
+  filesystem.Edit:
+    type: builtin
+  shell.Bash:
+    type: builtin
+  search.Glob:
+    type: builtin
+  search.Grep:
+    type: builtin
+  web.Fetch:
+    type: builtin
+
+# Session storage configuration.
+session:
+  provider: memory
+
+# Memory storage configuration (for long-term context).
+memory:
+  provider: memory

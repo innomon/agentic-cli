@@ -54,6 +54,29 @@ go build -o agenticli main.go
 ./agenticli [config.yaml]
 ```
 
+## ⚙️ Configuration
+
+AgentiCli uses a YAML configuration file to define models, agents, and tools. By default, it looks for `config.yaml` in the current directory if passed as an argument, or uses default settings.
+
+To get started:
+
+1.  **Copy the example configuration:**
+    ```bash
+    cp config.yaml.example config.yaml
+    ```
+2.  **Edit `config.yaml`:** Add your API keys (e.g., `api_key` for Gemini or OpenAI) and customize your default model or agent instructions.
+3.  **Run with the config:**
+    ```bash
+    ./agenticli config.yaml
+    ```
+
+### Key Configuration Sections:
+
+- **`models`**: Define LLM providers (Gemini, OpenAI, Ollama).
+- **`agents`**: Configure agent behavior, instructions, and available tools.
+- **`tools`**: Register local tools (filesystem, shell, search, web).
+- **`root_agent`**: Specify which agent should handle the main conversation.
+
 ## ⌨️ Shortcuts
 
 | Shortcut | Action |

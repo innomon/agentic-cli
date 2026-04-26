@@ -28,6 +28,7 @@ go build -o agenticli main.go
 ```bash
 ./agenticli [config.yaml]
 ```
+If no config is provided, default settings are used. See `config.yaml.example` for a template.
 
 ### Usage
 - **Type message**: Type your message and press `Enter`.

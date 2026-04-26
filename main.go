@@ -25,7 +25,7 @@ import (
 	"agenticli/pkg/console"
 	"github.com/innomon/agentic/pkg/registry"
 	_ "github.com/innomon/agentic/pkg/gnogent"
-	_ "github.com/innomon/agentic/pkg/gomlx"
+	_ "github.com/innomon/agentic/pkg/ml"
 	_ "github.com/innomon/agentic/pkg/prologmem"
 	_ "github.com/innomon/agentic/pkg/routing"
 	_ "github.com/innomon/agentic/pkg/wasm"
